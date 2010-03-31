@@ -83,7 +83,7 @@ namespace Bundler.Framework
                         string outputFile = ResolveAppRelativePathToFileSystem(renderTo);
                         string compressedCss = ProcessCssInput(GetFilePaths(cssFiles), outputFile, null, YuiCompressor.Identifier);
                         string hash = Hasher.Create(compressedCss);
-                        string renderedCssTag = String.Format(CssTemplate, mediaTag, ExpandAppRelativePath(renderTo) + "?r=" + hash);
+                        string renderedCssTag = String.Format(CssTemplate, mediaTag, ExpandAppRelativePath(renderTo) + "?" + hash);
                         renderedCssFiles.Add(key, renderedCssTag);
                     }
                 }

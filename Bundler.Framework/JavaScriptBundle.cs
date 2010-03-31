@@ -71,7 +71,7 @@ namespace Bundler.Framework
                         string outputFile = ResolveAppRelativePathToFileSystem(renderTo);
                         string minifiedJavaScript = ProcessJavaScriptInput(GetFilePaths(javaScriptFiles), outputFile, null, JsMinMinifier.Identifier);
                         string hash = Hasher.Create(minifiedJavaScript);
-                        string renderedScriptTag = String.Format(scriptTemplate, ExpandAppRelativePath(renderTo) + "?r=" + hash);
+                        string renderedScriptTag = String.Format(scriptTemplate, ExpandAppRelativePath(renderTo) + "?" + hash);
                         renderedJavaScriptFiles.Add(key, renderedScriptTag);
                     }
                 }

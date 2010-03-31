@@ -14,12 +14,7 @@ namespace Bundler.Framework.Utilities
 
         private static string ByteArrayToString(byte[] arrInput)
         {
-            var output = new StringBuilder(arrInput.Length);
-            for (int i = 0; i < arrInput.Length; i++)
-            {
-                output.Append(arrInput[i].ToString("X2"));
-            }
-            return output.ToString();
+            return System.Convert.ToBase64String(arrInput).Replace("=", "").Replace('+', '-').Replace('/', '_');
         }
     }
 }
